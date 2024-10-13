@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" type="image/svg+xml" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>%VITE_SITE_NAME%</title>
+  <meta name="keywords" content="%VITE_SITE_KEYWORDS%" />
+  <meta name="description" content="%VITE_SITE_DES%" />
+  <!-- <link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" /> -->
+  <link rel="stylesheet" href="https://bafont.systemannounce.com/Blueaka_Bold/Blueaka_Bold.css">
+  <link rel="stylesheet" href="https://bafont.systemannounce.com/Blueaka/Blueaka.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <img id="animatedImage" src="/images/niko/1.webp" alt="Animated Image" class="niko-image">
+  <script>
+    var basePath = '/images/niko/';
+    var images = [
+    '1.webp',
+    '2.webp',
+    '3.webp',
+    '4.webp',
+    '5.webp',
+    '6.webp',
+    '7.webp',
+    '8.webp',
+    '9.webp',
+    '10.webp',
+    '11.webp',
+    '12.webp'
+];
+
+    var preloadedImages = [];
+
+    // 预加载图片
+    for (var i = 0; i < images.length; i++) {
+        var img = new Image();
+        img.src = basePath + images[i];
+        preloadedImages.push(img);
+    }
+
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var scrollPercent = scrollPosition / documentHeight;
+
+        var totalImages = images.length;
+        var imageIndex = Math.min(Math.floor(scrollPercent * totalImages), totalImages - 1); // 根据滚动百分比计算当前图片索引
+        
+        document.getElementById('animatedImage').src = preloadedImages[imageIndex].src;
+    });
+</script>
+</body>
+
+</html>
