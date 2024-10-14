@@ -68,3 +68,4 @@ pnpm build
 ## 鸣谢
 
  - [uptime-status](https://github.com/yb/uptime-status) 基于此项目进行修改
+ - [kivo.wiki](https://kivo.wiki) 网站字体
